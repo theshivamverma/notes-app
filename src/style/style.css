@@ -1,0 +1,112 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container{
+  width: 100%;
+  height: 95vh;
+  display: flex;
+}
+
+.navbar{
+  width: 20%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.mainsection{
+  width: 80%;
+  height: 100%;
+  background-color: #F6F6F6;
+}
+
+.addnewnote{
+    width: 90%;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.pin{
+    position: absolute;
+    top: 11%;
+    right: 0%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.pin > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(0.6);
+}
+
+.addnewnote > input[type="text"]{
+    display: block;
+    width: 95%;
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    outline: none;
+    border: none;
+    border-radius: 0.1rem;
+}
+
+.bottom-inputs{
+    margin: 0.5rem auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.colors{
+    font-size: 0.9rem;
+    width: 25%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: initial;
+}
+
+.color-pill{
+    display: inline-block !important;
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.pinned, .others{
+  width: 100%;
+  min-height: 40vh;
+  background-color: #fff;
+}
+
+.others{
+  background-color: #e2e2e2;
+}
+
+.card{
+  width: 300px;
+  height: 180px;
+  background-color: #f2f2f2;
+  display: inline-block;
+  border: 1px solid black;
+}
+
