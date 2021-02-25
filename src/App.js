@@ -16,7 +16,7 @@ export default function App() {
       title: "Make this app",
       text: "Complete Styling, use Indexed DB",
       category: "Todo",
-      bgColor: "#fff",
+      bgColor: "#BFDBFE",
     },
     {
       id: uuid(),
@@ -24,7 +24,7 @@ export default function App() {
       title: "Practice JS concepts",
       text: "ES6+, Async, Await, CB, Promise",
       category: "Todo",
-      bgColor: "#fff",
+      bgColor: "#FEF3C7",
     },
   ]);
 
@@ -42,20 +42,42 @@ export default function App() {
     ]);
   }
 
+  function togglePinned(cardId, pinStatus){
+    setNotes(() => [...notes.map(card => {
+      if(card.id === cardId){
+        card.pinned = !pinStatus;
+      }
+      return card;
+    })])
+  }
+
+  function deleteCard(cardId) {
+    setNotes(() => [
+      ...notes.filter((card) => card.id !== cardId),
+    ]);
+  }
+
   function addNewTag(tag) {
     addTags(() => [...tags, tag]);
   }
 
+  console.log(notes)
+
   return (
     <div className="App">
-      <h1>Noty</h1>
       <div className="container">
         <Navbar
           setSelectedTag={setSelectedTag}
           tags={tags}
           addNewTagFunc={addNewTag}
         />
-        <Mainsection tags={tags} addNewNote={addNewNote} notes={notes} />
+        <Mainsection 
+          tags={tags} 
+          addNewNote={addNewNote} 
+          notes={notes} 
+          togglePinned={togglePinned} 
+          deleteCard={deleteCard} 
+        />
       </div>
     </div>
   );

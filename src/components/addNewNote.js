@@ -8,24 +8,22 @@ export const AddNewNote = ({
   setNewNoteVisible,
   tags,
   addNewNote,
+  pinned,
+  setPinned,
+  title,
+  setTitle,
+  text,
+  setText,
+  tagCategory,
+  setTagCategory,
+  bgColor,
+  setBgColor,
+  colors, 
+  editMode
 }) => {
-  const [pinned, setPinned] = useState(false);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [tagCategory, setTagCategory] = useState("");
-  const [bgColor, setBgColor] = useState("");
-  
-  const colors = [
-    "#FECACA",
-    "#FDE68A",
-    "#A7F3D0",
-    "#93C5FD",
-    "#C4B5FD",
-    "#c7ecee",
-  ];
 
   return (
-    <div className="addnewnote">
+    <div className="addnewnote" style={{backgroundColor: bgColor}}>
       <input
         type="text"
         placeholder="Title"
@@ -55,7 +53,7 @@ export const AddNewNote = ({
             Select Tag
           </option>
           {tags.map((tag) => {
-            return <option value={tag}>{tag}</option>;
+            return <option selected={tagCategory === tag ? true : false} value={tag}>{tag}</option>;
           })}
         </select>
         <div

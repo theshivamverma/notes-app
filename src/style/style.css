@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
 
 .App {
-  font-family: sans-serif;
   text-align: center;
 }
 
@@ -24,7 +24,8 @@
 .mainsection{
   width: 80%;
   height: 100%;
-  background-color: #F6F6F6;
+  background-color: #f7f1e3;
+  /* padding: 2rem 3rem; */
 }
 
 .addnewnote{
@@ -32,6 +33,9 @@
     padding: 1rem 2rem;
     margin: 0 auto;
     position: relative;
+    background-color: #F3F4F6
+;
+    border-radius: 0.5rem;
 }
 
 .pin{
@@ -44,6 +48,7 @@
     border: none;
     outline: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .pin > img{
@@ -64,23 +69,55 @@
     border-radius: 0.1rem;
 }
 
+.bottom-inputs > select{
+  width: 20%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
 .bottom-inputs{
-    margin: 0.5rem auto;
+    margin: 0 auto;
     width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.bottom-inputs > select{
+  width: 20%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.bottom-inputs > button{
+  padding: 0.5rem 2rem;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+}
+
+.bottom-inputs :nth-child(3){
+  background-color: #000;
+  color: #fff;
 }
 
 .colors{
     font-size: 0.9rem;
-    width: 25%;
+    width: 23%;
     height: 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     text-align: initial;
+    background-color: #fff;
+    border-radius: 0.5rem;
 }
 
 .color-pill{
@@ -95,18 +132,76 @@
 .pinned, .others{
   width: 100%;
   min-height: 40vh;
-  background-color: #fff;
-}
-
-.others{
-  background-color: #e2e2e2;
+  background-color: #f7f1e3;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 4rem;
+  flex-wrap: wrap;
 }
 
 .card{
-  width: 300px;
-  height: 180px;
-  background-color: #f2f2f2;
+  width: 350px;
+  height: 220px;
+  background-color: #FECACA;
   display: inline-block;
   border: 1px solid black;
+  margin-bottom: 2rem;
+  border: 4px solid #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  letter-spacing: 1px;
+  position: relative;
+  cursor: pointer;
 }
 
+.cardbtn{
+  width: 80px;
+  font-size: 0.7rem;
+  background-color: transparent;
+  padding: 0.1rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+}
+
+.card-category{  
+  display: block;
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+}
+
+.card > h3{
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card > p{
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.card .pin{
+  width: 30px;
+  height: 30px;
+  top: 2%;
+}
+
+.card-bottom-btns{
+  width: 90%;
+  position: absolute;
+  bottom: 4%;
+}
+
+.change-pin{
+  float: left;
+}
+
+.delete{
+  float: right;
+  border: 1px solid rgb(236, 130, 130);
+  color: rgb(247, 134, 134);
+}
