@@ -19,13 +19,79 @@
   width: 20%;
   height: 100%;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.filter-tags > button{
+  width: 70%;
+  height: 30px;
+  background-color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-new-tag{
+  height: 16%;
+}
+
+.add-new-tag > .main-btn{
+  width: 50%;
+  height: 30px;
+  background-color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  outline: none;
+}
+
+.input-tag{
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.input-tag > input{
+  width: 70%;
+  height: 25px;
+  margin-bottom: 1rem;
+  border-radius: 0.1rem;
+  border: 1px solid black;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.input-tag > button{
+  width: 40%;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+
+.save-tag{
+  background-color: rgb(175, 241, 175) !important;
+  margin-right: 0.5rem;
+}
+
+.close{
+  background-color: rgb(243, 154, 154) !important;
 }
 
 .mainsection{
   width: 80%;
   height: 100%;
   background-color: #f7f1e3;
-  /* padding: 2rem 3rem; */
+  padding-top: 2rem;
 }
 
 .addnewnote{
@@ -33,8 +99,7 @@
     padding: 1rem 2rem;
     margin: 0 auto;
     position: relative;
-    background-color: #F3F4F6
-;
+    background-color: #F3F4F6;
     border-radius: 0.5rem;
 }
 
@@ -194,14 +259,12 @@
   width: 90%;
   position: absolute;
   bottom: 4%;
-}
-
-.change-pin{
-  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .delete{
-  float: right;
   border: 1px solid rgb(236, 130, 130);
   color: rgb(247, 134, 134);
 }

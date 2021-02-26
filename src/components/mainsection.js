@@ -2,41 +2,55 @@ import { useState } from "react";
 import { AddNewNote } from "./addNewNote";
 import { Card } from "./card";
 
-export const Mainsection = ({ tags, addNewNote, notes, togglePinned, deleteCard }) => {
+export const Mainsection = ({
+  tags,
+  addNewNote,
+  notes,
+  togglePinned,
+  deleteCard,
+  editNoteChanges,
+}) => {
   const [newNoteVisible, setNewNoteVisible] = useState(false);
-  const [editMode, setEditMode] = useState(false)
-
+  const [editMode, setEditMode] = useState(false);
+  const [editNoteId, setEditNoteId] = useState("");
   const [pinned, setPinned] = useState(false);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [tagCategory, setTagCategory] = useState("");
   const [bgColor, setBgColor] = useState("");
 
-  const colors = ["#FEE2E2","#FEF3C7","#D1FAE5","#BFDBFE","#DDD6FE","#c7ecee",];
+  const colors = [
+    "#FEE2E2",
+    "#FEF3C7",
+    "#D1FAE5",
+    "#BFDBFE",
+    "#DDD6FE",
+    "#c7ecee",
+  ];
 
-  function changeEditMode(editid){
-    setEditMode(!editMode);
-    if(editMode){
-      setNewNoteVisible(true)
-      notes.map(note => {
-        if(note.id === editid){
-          setPinned(note.pinned);
-          setTitle(note.title);
-          setText(note.text);
-          setTagCategory(note.category)
-          setBgColor(note.bgColor)
-          return;
-        }
-      })
-    } else{
-      setNewNoteVisible(false)
-      setPinned("");
-      setTitle("");
-      setText("");
-      setTagCategory("");
-      setBgColor("");
-      return;
-    }
+  function changeEditMode(editid) {
+    setEditMode(true);
+    setEditNoteId(editid);
+    setNewNoteVisible(true);
+    notes.map((note) => {
+      if (note.id === editid) {
+        setPinned(note.pinned);
+        setTitle(note.title);
+        setText(note.text);
+        setTagCategory(note.category);
+        setBgColor(note.bgColor);
+      }
+    });
+  }
+
+  function setToDefault() {
+    setPinned(false);
+    setTitle("");
+    setText("");
+    setTagCategory("");
+    setBgColor("");
+    // setEditMode(false);
+    setNewNoteVisible(false);
   }
 
   return (
@@ -58,6 +72,9 @@ export const Mainsection = ({ tags, addNewNote, notes, togglePinned, deleteCard 
         setBgColor={setBgColor}
         colors={colors}
         editMode={editMode}
+        setToDefault={setToDefault}
+        editNoteChanges={editNoteChanges}
+        editNoteId={editNoteId}
       />
       <h3>Pinned</h3>
       <div className="pinned">
@@ -70,10 +87,11 @@ export const Mainsection = ({ tags, addNewNote, notes, togglePinned, deleteCard 
                 text={text}
                 pinned={pinned}
                 bgColor={bgColor}
-                category={category}
+                tagCategory={category}
                 id={id}
                 togglePinned={togglePinned}
                 deleteCard={deleteCard}
+                editMode={editMode}
                 changeEditMode={changeEditMode}
               />
             );
@@ -90,7 +108,7 @@ export const Mainsection = ({ tags, addNewNote, notes, togglePinned, deleteCard 
                 text={text}
                 pinned={pinned}
                 bgColor={bgColor}
-                category={category}
+                tagCategory={category}
                 id={id}
                 togglePinned={togglePinned}
                 deleteCard={deleteCard}

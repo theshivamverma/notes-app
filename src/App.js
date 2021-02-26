@@ -57,6 +57,19 @@ export default function App() {
     ]);
   }
 
+  function editNoteChanges(id, title, text, pinned, tagCategory, bgColor){
+    setNotes(() => [...notes.map(note => {
+      if(note.id === id){
+        note.title = title
+        note.text = text
+        note.pinned = pinned
+        note.category = tagCategory
+        note.bgColor = bgColor
+      }
+      return note;
+    })])
+  }
+
   function addNewTag(tag) {
     addTags(() => [...tags, tag]);
   }
@@ -74,9 +87,10 @@ export default function App() {
         <Mainsection 
           tags={tags} 
           addNewNote={addNewNote} 
-          notes={notes} 
+          notes={selectedTag === "" ? notes : notes.filter(note => note.category === selectedTag)} 
           togglePinned={togglePinned} 
-          deleteCard={deleteCard} 
+          deleteCard={deleteCard}
+          editNoteChanges={editNoteChanges}
         />
       </div>
     </div>

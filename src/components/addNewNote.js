@@ -19,11 +19,27 @@ export const AddNewNote = ({
   bgColor,
   setBgColor,
   colors, 
-  editMode
+  editMode, 
+  setToDefault,
+  editNoteChanges, 
+  editNoteId
 }) => {
 
+  function submitHandler(){
+    if(editMode){
+      editNoteChanges(editNoteId, title, text, pinned, tagCategory, bgColor)
+      setToDefault()
+    } else {
+      addNewNote(title, pinned, text, tagCategory, bgColor)
+      setToDefault()
+    }
+  }
+
   return (
-    <div className="addnewnote" style={{backgroundColor: bgColor}}>
+    <div
+      className={editMode ? `addnewnote note-edit` : `addnewnote`}
+      style={{ backgroundColor: bgColor }}
+    >
       <input
         type="text"
         placeholder="Title"
@@ -31,11 +47,12 @@ export const AddNewNote = ({
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <button className="pin"
+      <button
+        className="pin"
         style={{ display: newNoteVisible ? "initial" : "none" }}
         onClick={() => setPinned(!pinned)}
       >
-        <img src={ pinned ? pinnedImage : unpinnedImage} />
+        <img src={pinned ? pinnedImage : unpinnedImage} />
       </button>
       <input
         type="text"
@@ -53,7 +70,11 @@ export const AddNewNote = ({
             Select Tag
           </option>
           {tags.map((tag) => {
-            return <option selected={tagCategory === tag ? true : false} value={tag}>{tag}</option>;
+            return (
+              <option selected={tagCategory === tag ? true : false} value={tag}>
+                {tag}
+              </option>
+            );
           })}
         </select>
         <div
@@ -72,13 +93,13 @@ export const AddNewNote = ({
         </div>
         <button
           style={{ display: newNoteVisible ? "initial" : "none" }}
-          onClick={() => addNewNote(title, pinned, text, tagCategory, bgColor)}
+          onClick={submitHandler}
         >
           Submit
         </button>
         <button
           style={{ display: newNoteVisible ? "initial" : "none" }}
-          onClick={() => setNewNoteVisible(false)}
+          onClick={() => setToDefault()}
         >
           Close
         </button>
