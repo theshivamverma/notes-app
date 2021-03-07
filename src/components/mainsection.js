@@ -33,7 +33,7 @@ export const Mainsection = ({
     setEditMode(true);
     setEditNoteId(editid);
     setNewNoteVisible(true);
-    notes.map((note) => {
+    notes.forEach((note) => {
       if (note.id === editid) {
         setPinned(note.pinned);
         setTitle(note.title);
