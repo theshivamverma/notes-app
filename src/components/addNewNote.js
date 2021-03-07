@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import pinnedImage from "../images/pinned.png"
 import unpinnedImage from "../images/unpinned.png"
 
@@ -52,7 +50,7 @@ export const AddNewNote = ({
         style={{ display: newNoteVisible ? "initial" : "none" }}
         onClick={() => setPinned(!pinned)}
       >
-        <img src={pinned ? pinnedImage : unpinnedImage} />
+        <img src={pinned ? pinnedImage : unpinnedImage} alt="" />
       </button>
       <input
         type="text"

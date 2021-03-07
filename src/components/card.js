@@ -8,7 +8,7 @@ export const Card = ({ title, text, pinned, bgColor,tagCategory, id, togglePinne
       <h3>{title}</h3>
       <p>{text}</p>
       <button className="pin">
-        <img src={pinned ? pinnedImage : unpinnedImage} />
+        <img src={pinned ? pinnedImage : unpinnedImage} alt=""/>
       </button>
       <div className="card-bottom-btns">
         <button
