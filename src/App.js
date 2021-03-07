@@ -3,31 +3,28 @@ import "./style/responsive.css";
 import { v4 as uuid } from "uuid";
 
 import { Navbar, Mainsection } from "./components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState("");
 
   const [tags, addTags] = useState(["View All", "Work", "Shopping", "Todo", "Study"]);
 
-  const [notes, setNotes] = useState([
-    {
-      id: uuid(),
-      pinned: true,
-      title: "Make this app",
-      text: "Complete Styling, use Indexed DB",
-      category: "Todo",
-      bgColor: "#BFDBFE",
-    },
-    {
-      id: uuid(),
-      pinned: true,
-      title: "Practice JS concepts",
-      text: "ES6+, Async, Await, CB, Promise",
-      category: "Todo",
-      bgColor: "#FEF3C7",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    setNotes(JSON.parse(localStorage.getItem("notes")));
+    addTags(JSON.parse(localStorage.getItem("tags")));
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes))
+  },[notes])
+
+  useEffect(() => {
+    localStorage.setItem("tags", JSON.stringify(tags))
+  })
+
 
   const [menuButtonClicked, setMenuButtonClicked] = useState(false)
 

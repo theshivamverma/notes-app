@@ -1,11 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat";
 }
 
-body, html{
+body,
+html {
   width: 100%;
   min-height: 100vh;
 }
@@ -14,13 +15,13 @@ body, html{
   text-align: center;
 }
 
-.container{
+.container {
   width: 100%;
   min-height: 100vh;
   display: flex;
 }
 
-.navbar{
+.navbar {
   width: 20%;
   height: 100vh;
   background-color: #fff;
@@ -30,7 +31,7 @@ body, html{
   padding: 1rem;
 }
 
-.filter-tags > button{
+.filter-tags > button {
   width: 70%;
   height: 30px;
   background-color: #fff;
@@ -44,16 +45,16 @@ body, html{
   outline: none;
 }
 
-.filter-tags > button:hover{
+.filter-tags > button:hover {
   background-color: #000;
   color: #fff;
 }
 
-.add-new-tag{
+.add-new-tag {
   height: 16%;
 }
 
-.add-new-tag > .main-btn{
+.add-new-tag > .main-btn {
   width: 50%;
   height: 30px;
   background-color: #000;
@@ -64,13 +65,13 @@ body, html{
   outline: none;
 }
 
-.input-tag{
+.input-tag {
   border: 1px solid black;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
-.input-tag > input{
+.input-tag > input {
   width: 70%;
   height: 25px;
   margin-bottom: 1rem;
@@ -80,7 +81,7 @@ body, html{
   padding: 0.5rem;
 }
 
-.input-tag > button{
+.input-tag > button {
   width: 40%;
   height: 30px;
   background-color: #fff;
@@ -89,79 +90,79 @@ body, html{
   outline: none;
 }
 
-.save-tag{
+.save-tag {
   background-color: rgb(175, 241, 175) !important;
   margin-right: 0.5rem;
 }
 
-.close{
+.close {
   background-color: rgb(243, 154, 154) !important;
 }
 
-.mainsection{
+.mainsection {
   width: 80%;
   min-height: 100vh;
   background-color: #f7f1e3;
   padding-top: 2rem;
 }
 
-.addnewnote{
-    width: 90%;
-    padding: 1rem 2rem;
-    margin: 0 auto;
-    position: relative;
-    background-color: #F3F4F6;
-    border-radius: 0.5rem;
+.addnewnote {
+  width: 90%;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  position: relative;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
 }
 
-.pin{
-    position: absolute;
-    top: 11%;
-    right: 0%;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
+.pin {
+  position: absolute;
+  top: 11%;
+  right: 0%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.pin > img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    transform: scale(0.6);
+.pin > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(0.6);
 }
 
-.addnewnote > input[type="text"]{
-    display: block;
-    width: 95%;
-    margin: 0.5rem auto;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    outline: none;
-    border: none;
-    border-radius: 0.1rem;
+.addnewnote > input[type="text"] {
+  display: block;
+  width: 95%;
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  outline: none;
+  border: none;
+  border-radius: 0.1rem;
 }
 
-.bottom-inputs > select{
+.bottom-inputs > select {
   width: 20%;
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
 }
 
-.bottom-inputs{
-    margin: 0 auto;
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
+.bottom-inputs {
+  margin: 0 auto;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
 }
 
-.bottom-inputs > select{
+.bottom-inputs > select {
   width: 20%;
   padding: 0.5rem;
   border: none;
@@ -169,7 +170,7 @@ body, html{
   outline: none;
 }
 
-.bottom-inputs > button{
+.bottom-inputs > button {
   padding: 0.5rem 2rem;
   background-color: #fff;
   border: 1px solid black;
@@ -180,40 +181,42 @@ body, html{
   outline: none;
 }
 
-.bottom-inputs :nth-child(3){
+.bottom-inputs :nth-child(3) {
   background-color: #000;
   color: #fff;
 }
 
-.colors{
-    font-size: 0.9rem;
-    min-width: 23%;
-    min-height: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: initial;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    padding: 1rem;
+.colors {
+  font-size: 0.9rem;
+  min-width: 23%;
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: initial;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
-.color-pill{
-    display: inline-block !important;
-    width: 20px;
-    height: 20px;
-    border: none;
-    margin-right: 15px;
+.color-pill {
+  display: inline-block !important;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-right: 15px;
 }
 
-.color-pill:last-child{
+.color-pill:last-child {
   margin-right: 0;
 }
 
-.pinnedcontainer, .otherscontainer{
+.pinnedcontainer,
+.otherscontainer {
   padding-top: 2rem;
 }
 
-.pinned, .others{
+.pinned,
+.others {
   width: 100%;
   background-color: #f7f1e3;
   display: flex;
@@ -222,10 +225,10 @@ body, html{
   flex-wrap: wrap;
 }
 
-.card{
+.card {
   width: 350px;
   height: 220px;
-  background-color: #FECACA;
+  background-color: #fecaca;
   display: inline-block;
   border: 1px solid black;
   margin-bottom: 2rem;
@@ -237,7 +240,7 @@ body, html{
   cursor: pointer;
 }
 
-.cardbtn{
+.cardbtn {
   width: 80px;
   font-size: 0.7rem;
   background-color: transparent;
@@ -250,30 +253,30 @@ body, html{
   outline: none;
 }
 
-.card-category{  
+.card-category {
   display: block;
   margin-bottom: 0.5rem;
   background-color: #fff;
 }
 
-.card > h3{
+.card > h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-.card > p{
+.card > p {
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
-.card .pin{
+.card .pin {
   width: 30px;
   height: 30px;
   top: 2%;
 }
 
-.card-bottom-btns{
+.card-bottom-btns {
   width: 90%;
   position: absolute;
   bottom: 4%;
@@ -282,12 +285,12 @@ body, html{
   align-items: center;
 }
 
-.delete{
+.delete {
   border: 1px solid rgb(236, 130, 130);
   color: rgb(247, 134, 134);
 }
 
-.menuicon{
+.menuicon {
   position: absolute;
   top: 1%;
   right: 2%;
@@ -300,7 +303,7 @@ body, html{
   display: none;
 }
 
-.navbar > h1{
+.navbar > h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -308,6 +311,6 @@ body, html{
   flex-direction: column;
 }
 
-.navbar > h1 > i{
+.navbar > h1 > i {
   display: none;
 }
