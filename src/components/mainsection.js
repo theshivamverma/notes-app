@@ -9,6 +9,7 @@ export const Mainsection = ({
   togglePinned,
   deleteCard,
   editNoteChanges,
+  menuButtonClicked
 }) => {
   const [newNoteVisible, setNewNoteVisible] = useState(false);
   const [editMode, setEditMode] = useState(false);
@@ -54,7 +55,7 @@ export const Mainsection = ({
   }
 
   return (
-    <div className="mainsection">
+    <div className={menuButtonClicked ? "mainsection active" : "mainsection"}>
       <AddNewNote
         newNoteVisible={newNoteVisible}
         setNewNoteVisible={setNewNoteVisible}
@@ -76,46 +77,50 @@ export const Mainsection = ({
         editNoteChanges={editNoteChanges}
         editNoteId={editNoteId}
       />
-      <h3>Pinned</h3>
-      <div className="pinned">
-        {notes
-          .filter((note) => note.pinned)
-          .map(({ title, text, pinned, bgColor, category, id }) => {
-            return (
-              <Card
-                title={title}
-                text={text}
-                pinned={pinned}
-                bgColor={bgColor}
-                tagCategory={category}
-                id={id}
-                togglePinned={togglePinned}
-                deleteCard={deleteCard}
-                editMode={editMode}
-                changeEditMode={changeEditMode}
-              />
-            );
-          })}
+      <div className="pinnedcontainer">
+        <h3>Pinned</h3>
+        <div className="pinned">
+          {notes
+            .filter((note) => note.pinned)
+            .map(({ title, text, pinned, bgColor, category, id }) => {
+              return (
+                <Card
+                  title={title}
+                  text={text}
+                  pinned={pinned}
+                  bgColor={bgColor}
+                  tagCategory={category}
+                  id={id}
+                  togglePinned={togglePinned}
+                  deleteCard={deleteCard}
+                  editMode={editMode}
+                  changeEditMode={changeEditMode}
+                />
+              );
+            })}
+        </div>
       </div>
-      <h3>Others</h3>
-      <div className="others">
-        {notes
-          .filter((note) => note.pinned !== true)
-          .map(({ title, text, pinned, bgColor, category, id }) => {
-            return (
-              <Card
-                title={title}
-                text={text}
-                pinned={pinned}
-                bgColor={bgColor}
-                tagCategory={category}
-                id={id}
-                togglePinned={togglePinned}
-                deleteCard={deleteCard}
-                changeEditMode={changeEditMode}
-              />
-            );
-          })}
+      <div className="otherscontainer">
+        <h3>Others</h3>
+        <div className="others">
+          {notes
+            .filter((note) => note.pinned !== true)
+            .map(({ title, text, pinned, bgColor, category, id }) => {
+              return (
+                <Card
+                  title={title}
+                  text={text}
+                  pinned={pinned}
+                  bgColor={bgColor}
+                  tagCategory={category}
+                  id={id}
+                  togglePinned={togglePinned}
+                  deleteCard={deleteCard}
+                  changeEditMode={changeEditMode}
+                />
+              );
+            })}
+        </div>
       </div>
     </div>
   );

@@ -5,19 +5,24 @@
   font-family: "Montserrat";
 }
 
+body, html{
+  width: 100%;
+  min-height: 100vh;
+}
+
 .App {
   text-align: center;
 }
 
 .container{
   width: 100%;
-  height: 95vh;
+  min-height: 100vh;
   display: flex;
 }
 
 .navbar{
   width: 20%;
-  height: 100%;
+  height: 100vh;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -36,6 +41,12 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
+  outline: none;
+}
+
+.filter-tags > button:hover{
+  background-color: #000;
+  color: #fff;
 }
 
 .add-new-tag{
@@ -89,7 +100,7 @@
 
 .mainsection{
   width: 80%;
-  height: 100%;
+  min-height: 100vh;
   background-color: #f7f1e3;
   padding-top: 2rem;
 }
@@ -176,13 +187,14 @@
 
 .colors{
     font-size: 0.9rem;
-    width: 23%;
-    height: 40px;
+    min-width: 23%;
+    min-height: 40px;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     text-align: initial;
     background-color: #fff;
     border-radius: 0.5rem;
+    padding: 1rem;
 }
 
 .color-pill{
@@ -190,13 +202,19 @@
     width: 20px;
     height: 20px;
     border: none;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.color-pill:last-child{
+  margin-right: 0;
+}
+
+.pinnedcontainer, .otherscontainer{
+  padding-top: 2rem;
 }
 
 .pinned, .others{
   width: 100%;
-  min-height: 40vh;
   background-color: #f7f1e3;
   display: flex;
   justify-content: space-around;
@@ -267,4 +285,29 @@
 .delete{
   border: 1px solid rgb(236, 130, 130);
   color: rgb(247, 134, 134);
+}
+
+.menuicon{
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  z-index: 99;
+  display: none;
+}
+
+.navbar > h1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.navbar > h1 > i{
+  display: none;
 }

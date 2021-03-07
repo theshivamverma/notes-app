@@ -1,4 +1,5 @@
 import "./style/style.css";
+import "./style/responsive.css";
 import { v4 as uuid } from "uuid";
 
 import { Navbar, Mainsection } from "./components";
@@ -7,7 +8,7 @@ import { useState } from "react";
 export default function App() {
   const [selectedTag, setSelectedTag] = useState("");
 
-  const [tags, addTags] = useState(["Work", "Shopping", "Todo", "Study"]);
+  const [tags, addTags] = useState(["View All", "Work", "Shopping", "Todo", "Study"]);
 
   const [notes, setNotes] = useState([
     {
@@ -27,6 +28,8 @@ export default function App() {
       bgColor: "#FEF3C7",
     },
   ]);
+
+  const [menuButtonClicked, setMenuButtonClicked] = useState(false)
 
   function addNewNote(title, pinned, text, category, bgColor) {
     setNotes(() => [
@@ -74,23 +77,31 @@ export default function App() {
     addTags(() => [...tags, tag]);
   }
 
-  console.log(notes)
+  // map using reduce, filter using reduce, 
 
   return (
     <div className="App">
+      <i onClick={() => setMenuButtonClicked(!menuButtonClicked)} className="ri-menu-3-line menuicon"></i>
       <div className="container">
         <Navbar
           setSelectedTag={setSelectedTag}
           tags={tags}
           addNewTagFunc={addNewTag}
+          menuButtonClicked={menuButtonClicked}
+          setMenuButtonClicked={setMenuButtonClicked}
         />
-        <Mainsection 
-          tags={tags} 
-          addNewNote={addNewNote} 
-          notes={selectedTag === "" ? notes : notes.filter(note => note.category === selectedTag)} 
-          togglePinned={togglePinned} 
+        <Mainsection
+          tags={tags}
+          addNewNote={addNewNote}
+          notes={
+            selectedTag === ""
+              ? notes
+              : notes.filter((note) => note.category === selectedTag)
+          }
+          togglePinned={togglePinned}
           deleteCard={deleteCard}
           editNoteChanges={editNoteChanges}
+          menuButtonClicked={menuButtonClicked}
         />
       </div>
     </div>

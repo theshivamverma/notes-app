@@ -1,61 +1,84 @@
 import { useState } from "react";
 
-function Tag({ tag, setSelectedTag }) {
+function Tag({ tag, setSelectedTag, setMenuButtonClicked }) {
   return (
     <button
       style={{ display: "block", margin: "1rem auto" }}
-      onClick={() => setSelectedTag(tag)}
+      onClick={() => {
+        let sendtagValue = tag === "View All" ? "" : tag;
+        setSelectedTag(sendtagValue)
+        setMenuButtonClicked(false)
+      }}
     >
       {tag}
     </button>
   );
 }
 
-function AddTag({
-  addTagDisplay,
-  setAddTagDisplay,
-  addNewTagFunc,
-  tagValue,
-  setTagValue,
-}) {
+function AddTag({ clearValues, addNewTagFunc, tagValue, setTagValue }) {
   return (
     <div className="input-tag">
       <input value={tagValue} onChange={(e) => setTagValue(e.target.value)} />
       <br />
-      <button className="save-tag" onClick={() => addNewTagFunc(tagValue)}>Save</button>
-      <button className="close" onClick={() => setAddTagDisplay(!addTagDisplay)}>Close</button>
+      <button
+        className="save-tag"
+        onClick={() => {
+          addNewTagFunc(tagValue);
+          clearValues();
+        }}
+      >
+        Save
+      </button>
+      <button className="close" onClick={clearValues}>
+        Close
+      </button>
     </div>
   );
 }
 
-export const Navbar = ({ setSelectedTag, tags, addNewTagFunc }) => {
+export const Navbar = ({
+  setSelectedTag,
+  tags,
+  addNewTagFunc,
+  menuButtonClicked,
+  setMenuButtonClicked
+}) => {
   const [addTagDisplay, setAddTagDisplay] = useState(false);
   const [tagValue, setTagValue] = useState("");
 
+  function clearValues() {
+    setAddTagDisplay(false);
+    setTagValue("");
+  }
+
   return (
-    <div className="navbar">
-      <h1>Notify</h1>
+    <div className={menuButtonClicked ? "navbar active" : "navbar"}>
+      <h1>
+        Notify <i className="ri-close-line" onClick={() => setMenuButtonClicked(false)}></i>
+      </h1>
       <div className="filter-tags">
         <h3>Filter by tag</h3>
         {tags.map((tag) => {
-          return <Tag key={tag} tag={tag} setSelectedTag={setSelectedTag} />;
+          return <Tag key={tag} tag={tag} setSelectedTag={setSelectedTag} setMenuButtonClicked={setMenuButtonClicked}/>;
         })}
       </div>
       <div className="add-new-tag">
-        <button className="main-btn" onClick={() => setAddTagDisplay(!addTagDisplay)}>
+        <button
+          className="main-btn"
+          onClick={() => setAddTagDisplay(!addTagDisplay)}
+        >
           Add new tag
         </button>
         {addTagDisplay ? (
           <AddTag
-            addTagDisplay={addTagDisplay}
-            setAddTagDisplay={setAddTagDisplay}
+            clearValues={clearValues}
             addNewTagFunc={addNewTagFunc}
             tagValue={tagValue}
             setTagValue={setTagValue}
           />
-        ) : 
+        ) : (
           ""
-        }
+        )}
       </div>
     </div>
   );

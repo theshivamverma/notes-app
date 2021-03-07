@@ -1,0 +1,26 @@
+@media(max-width: 1030px){
+    .navbar{
+        position: absolute;
+        right: -50%;
+    }
+    .mainsection{
+        width: 100%;
+        padding-top: 6rem;
+    }
+    .menuicon{
+        display: initial;
+    }
+    .navbar.active{
+        width: 40%;
+        z-index: 999;
+        right: 0;
+        transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+    }
+    .navbar > h1 > i{
+        display: initial;
+    }
+    .mainsection.active{
+        filter: blur(10px)
+    }
+}
+
